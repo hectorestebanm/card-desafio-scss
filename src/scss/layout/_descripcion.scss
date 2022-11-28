@@ -1,0 +1,124 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+body
+{
+    background-color: v.$Cream;
+    // Se centra el contenido de la card en medio de la pantalla con los siguientes parámetros
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card
+{
+    max-width: 340px;
+    margin: 0 auto;
+    border-radius: 1rem;
+    overflow: hidden;   // Ocultar el overflow de la imagen, para que no tape el borde de la card
+    background-color: v.$White;
+    @include m.telefono
+    {
+        // Dividir en 2 columnas, cuando sea el ancho mayor a 480px
+        max-width: 600px;
+        @include m.grid(2, 0);
+    }
+}
+
+.seccion-segundo
+{
+    padding: 0 32px;
+    @include m.telefono
+    {
+        padding: 0 20px;        
+    }
+
+    &-encabezado
+    {
+        margin: 15px 0 10px 0;
+        font-size: 12px;
+        letter-spacing: 5px;
+        color: v.$Dark-grayish-blue;
+        @include m.telefono{
+            margin-top: 25px;
+        }
+    }
+    &-titulo
+    {
+        margin: 0;
+        font-size: 31px;
+        font-family: v.$fuente1;
+        @include m.telefono
+        {
+            font-size: 35px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+    &-descripcion
+    {
+        font-size: 14px;
+        font-weight: 700;
+        margin: 10px 0;
+        color: v.$Dark-grayish-blue;
+        @include m.telefono
+        {
+            font-size: 16px
+        }
+    }
+    &-precio
+    {
+        display: flex;
+        align-items: center;
+        @include m.telefono
+        {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .precio-descuento
+        {
+            color: v.$Dark-cyan;
+            margin: 0 20px 0 0;
+            font-family: v.$fuente1;
+            font-size: 30px;
+        }
+        .precio-normal
+        {
+            margin: 0;
+            font-size: 14px;
+            color: v.$Dark-grayish-blue;
+            text-decoration: line-through;
+        }
+    }
+}
+
+.seccion-segundo-button
+{
+    background-color: v.$Dark-cyan;
+    color: v.$blanco;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 10px 0 15px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    @include m.telefono
+    {
+        padding: 15px;
+    }
+    .button-image
+    {
+        width: 15px;
+        margin-right: 10px;
+    }
+    &:hover     // Efecto Hover al botón, cuando se pase el cursor por encima
+    {
+        cursor: pointer;    // El cursor cambia a puntero sobre el botón
+        background-color: hsl(158, 49%, 22%);
+    }
+}

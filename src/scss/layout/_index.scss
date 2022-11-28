@@ -1,0 +1,7 @@
+// Con forward incluir en  _index.scss, todos los archivos .scss de la carpeta
+// Ejemplo @forward "archivo";   sin guión ni .scss
+
+@forward "imagen";
+@forward "descripcion";
+@forward "footer";
+

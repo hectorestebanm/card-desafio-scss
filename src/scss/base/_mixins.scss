@@ -1,0 +1,54 @@
+@use "variables" as v;  // Llamada por imv para importar mixin de variables
+
+// Llamadas por mediaquery por mq, seguido del tamaño de pantalla
+@mixin telefono
+{
+    @media (min-width: v.$telefono)
+    {
+        @content;   // Me permite usar el mismo mixin para generar propiedades en diferentes clases
+    }
+}
+
+// Llamadas por mediaquery por mq, seguido del tamaño de pantalla
+@mixin tablet
+{
+    @media (min-width: v.$tablet)
+    {
+        @content;   // Me permite usar el mismo mixin para generar propiedades en diferentes clases
+    }
+}
+
+// Llamadas por mediaquery por mq, seguido del tamaño de pantalla
+@mixin desktop
+{
+    @media (min-width: v.$desktop)
+    {
+        @content;   // Me permite usar el mismo mixin para generar propiedades en diferentes clases
+    }
+}
+
+// Llamadas por mediaquery por mq, seguido del tamaño de pantalla
+@mixin desktopXL
+{
+    @media (min-width: v.$desktopXL)
+    {
+        @content;   // Me permite usar el mismo mixin para generar propiedades en diferentes clases
+    }
+}
+
+// Llamada por mixin, m.grid(n, nrem)
+@mixin grid($columnas, $espaciado)
+{
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    // Dentro de repeat se dividirá en n columnas la página, junto con un espaciado si así lo requiere
+    gap: $espaciado;
+}
+
+// Llamada por mixin, m.resetear-lista
+@mixin resetear-lista
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
